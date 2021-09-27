@@ -20,7 +20,9 @@
  * directives. This is a common mistake.
  */
 #define LED_GREEN   PB5 // AVR pin where green LED is connected
-#define SHORT_DELAY 250 // Delay in milliseconds
+#define DOT_DELAY 100 // Delay in milliseconds
+#define COMMA_DELAY 300 // Delay in milliseconds
+#define SHORT_DELAY 100 // Delay in milliseconds
 #ifndef F_CPU           // Preprocessor directive allows for conditional
                         // compilation. The #ifndef means "if not defined".
 # define F_CPU 16000000 // CPU frequency in Hz required for delay
@@ -50,16 +52,66 @@ int main(void)
     PORTB = PORTB & ~(1<<LED_GREEN);
 
     // Infinite loop
+
     while (1)
     {
         // Pause several milliseconds
-        _delay_ms(SHORT_DELAY);
+        //_delay_ms(SHORT_DELAY);
 
         // Invert LED in Data Register
         // PORTB = PORTB xor 0010 0000
-        PORTB = PORTB ^ (1<<LED_GREEN);
+		
+		//D
+		
+        PORTB = PORTB ^ (1<<LED_GREEN);       
+		_delay_ms(COMMA_DELAY);
+		PORTB = PORTB ^ (1<<LED_GREEN);
+		_delay_ms(SHORT_DELAY);              //pause
+		
+		PORTB = PORTB ^ (1<<LED_GREEN);
+		_delay_ms(DOT_DELAY);
+		PORTB = PORTB ^ (1<<LED_GREEN);
+		_delay_ms(SHORT_DELAY);
+		
+		PORTB = PORTB ^ (1<<LED_GREEN);
+		_delay_ms(DOT_DELAY);
+		PORTB = PORTB ^ (1<<LED_GREEN);
+		_delay_ms(SHORT_DELAY);
+		
+		//E
+		PORTB = PORTB ^ (1<<LED_GREEN);  
+		_delay_ms(DOT_DELAY);
+		PORTB = PORTB ^ (1<<LED_GREEN);
+		_delay_ms(SHORT_DELAY);
+		
+	    //2
+		PORTB = PORTB ^ (1<<LED_GREEN);  
+		_delay_ms(DOT_DELAY);
+		PORTB = PORTB ^ (1<<LED_GREEN);
+		_delay_ms(SHORT_DELAY);
+		
+		PORTB = PORTB ^ (1<<LED_GREEN);  
+		_delay_ms(DOT_DELAY);
+		PORTB = PORTB ^ (1<<LED_GREEN);
+		_delay_ms(SHORT_DELAY);
+		
+		PORTB = PORTB ^ (1<<LED_GREEN);
+		_delay_ms(COMMA_DELAY);
+		PORTB = PORTB ^ (1<<LED_GREEN);
+		_delay_ms(SHORT_DELAY);
+		
+		PORTB = PORTB ^ (1<<LED_GREEN); 
+		_delay_ms(COMMA_DELAY);
+		PORTB = PORTB ^ (1<<LED_GREEN);
+		_delay_ms(SHORT_DELAY);
+		
+		PORTB = PORTB ^ (1<<LED_GREEN); 
+		_delay_ms(COMMA_DELAY);
+		PORTB = PORTB ^ (1<<LED_GREEN);
+		_delay_ms(SHORT_DELAY);
+		
     }
-
+	
     // Will never reach this
     return 0;
 }
