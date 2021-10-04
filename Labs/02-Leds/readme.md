@@ -11,20 +11,20 @@ Link to your `Digital-electronics-2` GitHub repository:
 
 | **DDRB** | **Description** |
 | :-: | :-- |
-| 0 | Input pin |
-| 1 | Output pin |
+| 0 | input pin |
+| 1 | output pin |
 
 | **PORTB** | **Description** |
 | :-: | :-- |
-| 0 | Output low value |
-| 1 | Output high value |
+| 0 | output low value |
+| 1 | output high value |
 
 | **DDRB** | **PORTB** | **Direction** | **Internal pull-up resistor** | **Description** |
 | :-: | :-: | :-: | :-: | :-- |
 | 0 | 0 | input | no | Tri-state, high-impedance |
 | 0 | 1 | input | yes | Pxn will source current if ext. pulled low|
-| 1 | 0 | output| no | Output Low (Sink)|
-| 1 | 1 | output | no | Output High (Source)|
+| 1 | 0 | output| no | output Low (Sink)|
+| 1 | 1 | output | no | Ootput High (Source)|
 
 2. Part of the C code listing with syntax highlighting, which blinks alternately with a pair of LEDs; let one LED is connected to port B and the other to port C:
 
