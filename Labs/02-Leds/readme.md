@@ -4,7 +4,7 @@ Link to your `Digital-electronics-2` GitHub repository:
 
    [https://github.com/Zuzanaczm/Digital_electronics_2/tree/main/Labs/02-Leds](https://github.com/Zuzanaczm/Digital_electronics_2/tree/main/Labs/02-Leds)
 
-## Preparation tasks - Part 1
+### Part 1 - Preparation tasks 
 
 1. Draw two basic ways to connect a LED to the output pin of the microcontroller: LED active-low, LED active-high.
 
@@ -28,7 +28,7 @@ R = \frac{V_{SUPPLY}-V_{LED}}{I} =
 ![](images/)
 
 
-### Active-low and active-high LEDs
+### Part 2 - Active-low and active-high LEDs
 
 1. Complete tables according to the AVR manual.
 
