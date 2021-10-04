@@ -63,12 +63,12 @@ R = \frac{V_{SUPPLY}-V_{LED}}{I} =
 |   | 5 |  Arduino pin D13 |
 |   | 6 | No |
 |   | 7 | No |
-| C | 0 | Yes Arduino pin A0(D14) |
-|   | 1 | Yes Arduino pin A1(D15) |
-|   | 2 | Yes Arduino pin A2(D16) |
-|   | 3 | Yes Arduino pin A3(D17) |
-|   | 4 | Yes Arduino pin A4(D18)|
-|   | 5 | Yes Arduino pin A5(D19) |
+| C | 0 | Arduino pin A0(D14) |
+|   | 1 |  Arduino pin A1(D15) |
+|   | 2 |  Arduino pin A2(D16) |
+|   | 3 |  Arduino pin A3(D17) |
+|   | 4 | Arduino pin A4(D18)|
+|   | 5 |  Arduino pin A5(D19) |
 |   | 6 | Yes/Reset |
 |   | 7 | No |
 | D | 0 |  Arduino pin RX<-D0 |
