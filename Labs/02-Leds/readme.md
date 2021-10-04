@@ -1,4 +1,4 @@
-# Lab 2: Zuzana Czmelová
+# Lab 2 : Zuzana Czmelová
 
 Link to your `Digital-electronics-2` GitHub repository:
 
