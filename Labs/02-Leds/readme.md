@@ -40,7 +40,7 @@ int main(void)
     PORTB = PORTB & ~(1<<LED_GREEN);
 
     // Configure the second LED at port C
-    DDRC = DDRC | (1<<LED_RED);
+    DDRC =  DDRC | (1<<LED_RED);
     PORTC = PORTC | (1<<LED_RED);
 
     // Infinite loop
