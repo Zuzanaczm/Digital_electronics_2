@@ -30,7 +30,7 @@ Link to your `Digital-electronics-2` GitHub repository:
 
 ```c
 #define LED_GREEN   PB5     // AVR pin where green LED is connected
-#define LED_RED   PC4
+#define LED_RED     PC5
 #define BLINK_DELAY 500
 
 int main(void)
