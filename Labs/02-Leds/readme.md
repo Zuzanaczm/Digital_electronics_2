@@ -7,8 +7,9 @@ Link to your `Digital-electronics-2` GitHub repository:
 ### Part 1 - Preparation tasks 
 
 1. Draw two basic ways to connect a LED to the output pin of the microcontroller: LED active-low, LED active-high.
+![leds](images/leds.png)
 
-![](images/)
+
 2. [Calculate LED resistor value](https://electronicsclub.info/leds.htm) for typical red and blue LEDs.
 
 ![ohms_law](images/ohms_law.png)
@@ -25,7 +26,7 @@ R = \frac{V_{SUPPLY}-V_{LED}}{I} =
 
 3. Draw the basic ways to connect a push button to the microcontroller input pin: button active-low, button active-high.
 
-![](images/)
+![](images/buttons.png)
 
 
 ### Part 2 - Active-low and active-high LEDs
