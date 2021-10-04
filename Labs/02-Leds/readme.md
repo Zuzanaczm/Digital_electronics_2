@@ -50,6 +50,36 @@ R = \frac{V_{SUPPLY}-V_{LED}}{I} =
 | 1 | 0 | output| no | output Low (Sink)|
 | 1 | 1 | output | no | Ootput High (Source)|
 
+
+
+| **Port** | **Pin** | **Input/output usage?** |
+| :-: | :-: | :-- |
+| A | x | Microcontroller ATmega328P does not contain port A |
+| B | 0 |  Arduino pin D8 |
+|   | 1 |  Arduino pin D9 |
+|   | 2 |  Arduino pin D10 |
+|   | 3 |  Arduino pin D11 |
+|   | 4 |  Arduino pin D12 |
+|   | 5 |  Arduino pin D13 |
+|   | 6 | No |
+|   | 7 | No |
+| C | 0 | Yes Arduino pin A0(D14) |
+|   | 1 | Yes Arduino pin A1(D15) |
+|   | 2 | Yes Arduino pin A2(D16) |
+|   | 3 | Yes Arduino pin A3(D17) |
+|   | 4 | Yes Arduino pin A4(D18)|
+|   | 5 | Yes Arduino pin A5(D19) |
+|   | 6 | Yes/Reset |
+|   | 7 | No |
+| D | 0 |  Arduino pin RX<-D0 |
+|   | 1 |  Arduino pin TX<-D1 |
+|   | 2 |  Arduino pin D2 |
+|   | 3 | Arduino pin D3 |
+|   | 4 | Arduino pin D4 |
+|   | 5 |  Arduino pin D5 |
+|   | 6 |  Arduino pin D6 |
+|   | 7 |  Arduino pin D7 |
+
 2. Part of the C code listing with syntax highlighting, which blinks alternately with a pair of LEDs; let one LED is connected to port B and the other to port C:
 
 ```c
