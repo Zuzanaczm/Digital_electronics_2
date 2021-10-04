@@ -12,9 +12,10 @@
 /* Defines -----------------------------------------------------------*/
 #define LED_GREEN   PB5     // AVR pin where green LED is connected
 #define LED_RED     PC5
+#define BUTTON      PD6
 #define BLINK_DELAY 500
 #ifndef F_CPU
-# define F_CPU 16000000     // CPU frequency in Hz required for delay
+#define F_CPU 16000000     // CPU frequency in Hz required for delay
 #endif
 
 /* Includes ----------------------------------------------------------*/
@@ -49,7 +50,8 @@ int main(void)
         _delay_ms(BLINK_DELAY);
         
     PORTB = PORTB ^ (1<<LED_GREEN);   
-    PORTC = PORTC ^ (1<<LED_RED);   
+    PORTC = PORTC ^ (1<<LED_RED); 
+	 
       
     }
 
