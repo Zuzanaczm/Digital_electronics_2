@@ -133,8 +133,7 @@ int main(void)
     // Infinite loop
     while (1)
     {
-        if (((PIND>>BUTTON) & 1) == 0)
-	  
+        if (((PIND>>BUTTON) & 1) == 0)	  
     {
         _delay_ms(BLINK_DELAY); 
         PORTB = PORTB ^ (1<<LED_GREEN);   
