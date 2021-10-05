@@ -113,3 +113,34 @@ int main(void)
 ```
 
 ### Part 3 - Push button 
+```c
+int main(void)
+{
+    // Green LED at port B
+    // Set pin as output in Data Direction Register...
+   DDRB = DDRB | (1<<LED_GREEN);                //output
+    // ...and turn LED off in Data Register
+   PORTB = PORTB & ~(1<<LED_GREEN);
+
+    // Configure the second LED at port C
+   DDRC  = DDRC  | (1<<LED_RED);                                    //output
+   PORTC = PORTC & ~(1<<LED_RED);
+
+    // Configure Push button at port D and enable internal pull-up resistor
+   DDRD  =  DDRD & ~(1<<BUTTON);
+   PORTD =  PORTD | (1<<BUTTON);
+
+    // Infinite loop
+    while (1)
+    {
+        if (((PIND>>BUTTON) & 1) == 0)
+	  
+        _delay_ms(BLINK_DELAY); 
+        PORTB = PORTB ^ (1<<LED_GREEN);   
+        PORTC = PORTC ^ (1<<LED_RED); 
+    }
+
+    // Will never reach this
+    return 0;
+}
+```
