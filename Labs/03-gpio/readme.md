@@ -17,41 +17,6 @@ Link to your `Digital-electronics-2` GitHub repository:
 | `float`    | 32 | -3.4e+38, ..., 3.4e+38 | Single-precision floating-point |
 | `void`     | 0 | 0 | No return type for function / generic pointer |
 
-2. Any function in C contains a declaration (function prototype), a definition (block of code, body of the function); each declared function can be executed (called)
-
-```c
-#include <avr/io.h>
-
-// Function declaration (prototype)
-uint16_t calculate(uint8_t, uint8_t);
-
-int main(void)
-{
-    uint8_t a = 156;
-    uint8_t b = 14;
-    uint16_t c;
-
-    // Function call
-    c = calculate (a, b);
-
-    while (1)
-    {
-    }
-    return 0;
-}
-
-// Function definition (body)
-uint16_t  calculate(uint8_t x, uint8_t y)
-{
-    uint16_t result;    // result = x^2 + 2xy + y^2
-
-     result = x*x;
-	  result += 2*x*y;
-	  result += y*y;
-	
-    return result;
-}
-```
 
 ## GPIO library
 
@@ -112,3 +77,5 @@ int main(void)
 ## Traffic light
 
 1. Scheme of traffic light application with one red/yellow/green light for cars and one red/green light for pedestrians. Connect AVR device, LEDs, resistors, one push button (for pedestrians), and supply voltage. The image can be drawn on a computer or by hand. Always name all components and their values!
+
+   ![your figure]()
