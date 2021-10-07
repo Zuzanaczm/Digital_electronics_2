@@ -19,11 +19,11 @@ Link to your `Digital-electronics-2` GitHub repository:
 
 2. Any function in C contains a declaration (function prototype), a definition (block of code, body of the function); each declared function can be executed (called)
 
-```C
+```c
 #include <avr/io.h>
 
 // Function declaration (prototype)
-uint16_t calculate(uint8_t, ...    );
+uint16_t calculate(uint8_t, uint8_t);
 
 int main(void)
 {
@@ -32,7 +32,7 @@ int main(void)
     uint16_t c;
 
     // Function call
-    c = ...      (a, b);
+    c = calculate (a, b);
 
     while (1)
     {
@@ -41,13 +41,70 @@ int main(void)
 }
 
 // Function definition (body)
-...      calculate(uint8_t x, uint8_t y)
+uint16_t  calculate(uint8_t x, uint8_t y)
 {
     uint16_t result;    // result = x^2 + 2xy + y^2
 
-    result = x*x;
-    ...
-    ...
+     result = x*x;
+	  result += 2*x*y;
+	  result += y*y;
+	
     return result;
+}
+```
+
+## GPIO library
+
+1. In your words, describe the difference between the declaration and the definition of the function in C.
+   * Function declaration
+   * Function definition
+
+2. Part of the C code listing with syntax highlighting, which toggles LEDs only if push button is pressed. Otherwise, the value of the LEDs does not change. Use function from your GPIO library. Let the push button is connected to port D:
+
+```c
+#define LED_GREEN   PB5  // AVR pin where green LED is connected
+#define LED_RED     PC4
+#define BUTTON      PD6    
+#define BLINK_DELAY 500
+#ifndef F_CPU
+# define F_CPU 16000000     // CPU frequency in Hz required for delay
+#endif
+
+#include <util/delay.h>     // Functions for busy-wait delay loops
+#include <avr/io.h> 
+#include <avr/sfr_defs.h>        // AVR device-specific IO definitions
+#include "gpio.h"           // GPIO library for AVR-GCC
+
+
+int main(void)
+{
+    // Green LED at port B
+    GPIO_config_output(&DDRB, LED_GREEN);
+    GPIO_write_low(&PORTB, LED_GREEN);
+
+    // Configure the second LED at port C
+    GPIO_config_output(&DDRC, LED_RED);
+    GPIO_write_high(&PORTC, LED_RED);
+
+    // Configure Push button at port D and enable internal pull-up resistor
+    GPIO_config_input_pullup(&DDRD, BUTTON);
+    
+
+    // Infinite loop
+    while (1)
+    {
+        // Pause several milliseconds
+        _delay_ms(BLINK_DELAY);
+
+         if((bit_is_clear(&PIND, BUTTON))
+         {
+	         GPIO_toggle(&PORTB, LED_GREEN);
+	         GPIO_toggle(&PORTC, LED_RED);
+	         loop_until_bit_is_set(&PIND, BUTTON);
+         }
+    }
+
+    // Will never reach this
+    return 0;
 }
 ```
