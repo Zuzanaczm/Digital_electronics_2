@@ -27,20 +27,6 @@ Link to your `Digital-electronics-2` GitHub repository:
 2. Part of the C code listing with syntax highlighting, which toggles LEDs only if push button is pressed. Otherwise, the value of the LEDs does not change. Use function from your GPIO library. Let the push button is connected to port D:
 
 ```c
-#define LED_GREEN   PB5  // AVR pin where green LED is connected
-#define LED_RED     PC4
-#define BUTTON      PD6    
-#define BLINK_DELAY 500
-#ifndef F_CPU
-# define F_CPU 16000000     // CPU frequency in Hz required for delay
-#endif
-
-#include <util/delay.h>     // Functions for busy-wait delay loops
-#include <avr/io.h> 
-#include <avr/sfr_defs.h>        // AVR device-specific IO definitions
-#include "gpio.h"           // GPIO library for AVR-GCC
-
-
 int main(void)
 {
     // Green LED at port B
