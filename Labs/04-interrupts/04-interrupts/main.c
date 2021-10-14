@@ -61,7 +61,5 @@ int main(void)
  **********************************************************************/
 ISR(TIMER1_OVF_vect)
 {
-     DDRB = DDRB | (1<<LED_D1);
-     PORTB = PORTB ^ (1<<LED_D1);
-
+     GPIO_toggle(&PORTB, LED_D1); 
 }
