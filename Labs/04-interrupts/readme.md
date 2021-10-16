@@ -57,8 +57,12 @@ Link to your `Digital-electronics-2` GitHub repository:
 
    ![your figure]()
    
-   ```c
-   int main(void)
+```c
+/**
+ * @name  Definitions of Timer/Counter0
+ * @note  F_CPU = 16 MHz
+ */
+int main(void)
 {
     // Configuration of LED(s) at port B
     GPIO_config_output(&DDRB, LED_D1);
@@ -73,32 +77,27 @@ Link to your `Digital-electronics-2` GitHub repository:
     sei();
 
     // Infinite loop
-  while (1)
-  {
-	  if(!GPIO_read(&PINC, BUTTON_PC1))
-	  {
-		  TIM1_overflow_33ms();
-	  }
-	  else
-	  {
-		  TIM1_overflow_262ms();
-	  }
-  }
+    while (1)
+    {
+        if(!GPIO_read(&PINC, BUTTON_PC1))
+        {
+            TIM1_overflow_33ms();
+        }
+        else
+        {
+            TIM1_overflow_262ms();
+        }
+    }
 
-  // Will never reach this
-  return 0;
-  }
-
-/* Interrupt service routines ----------------------------------------*/
-/**********************************************************************
- * Function: Timer/Counter1 overflow interrupt
- * Purpose:  Toggle D1 LED on Multi-function shield.
- **********************************************************************/
-ISR(TIMER1_OVF_vect)
-{
-     GPIO_toggle(&PORTB, LED_D1); 
+    // Will never reach this
+    return 0;
 }
 
+ISR(TIMER1_OVF_vect)
+{
+    GPIO_toggle(&PORTB, LED_D1);
+}
+```
 
 ### Knight Rider
 
