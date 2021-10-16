@@ -40,7 +40,14 @@
  * @name  Definitions for 16-bit Timer/Counter1
  * @note  t_OVF = 1/F_CPU * prescaler * 2^n where n = 16, F_CPU = 16 MHz
  */
-/** @brief Stop timer, prescaler 000 --> STOP */
+/**
+ * @name  Definitions for 8-bit Timer/Counter0
+ * @note  t_OVF = 1/F_CPU * prescaler * 2^n where n = 8, F_CPU = 16 MHz
+ */
+/**
+ * @name  Definitions for 8-bit Timer/Counter0
+ * @note  t_OVF = 1/F_CPU * prescaler * 2^n where n = 8, F_CPU = 16 MHz
+ */
 #define TIM1_stop()           TCCR1B &= ~((1<<CS12) | (1<<CS11) | (1<<CS10));
 /** @brief Set overflow 4ms, prescaler 001 --> 1 */
 #define TIM1_overflow_4ms()   TCCR1B &= ~((1<<CS12) | (1<<CS11)); TCCR1B |= (1<<CS10);
