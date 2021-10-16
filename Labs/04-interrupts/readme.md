@@ -9,18 +9,17 @@ Link to your `Digital-electronics-2` GitHub repository:
 ### Overflow times
 
 1. Complete table with overflow times.
-
+2. 
 | **Module** | **Number of bits** | **1** | **8** | **32** | **64** | **128** | **256** | **1024** |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Timer/Counter0 | 8  | 16u | 128u | -- | | -- | | |
-| Timer/Counter1 | 16 |     |      | -- | | -- | | |
-| Timer/Counter2 | 8  |     |      |    | |    | | |
-
+| Timer/Counter0 | 8  | 16u | 128u | -- | 1m | -- | 4m | 16m |
+| Timer/Counter1 | 16 | 4m | 32m | -- | 0,262 | -- | 1,049 | 4,194 |
+| Timer/Counter2 | 8  | 16u | 128u | 0,512m | 1m | 2m | 4m | 16m |
 
 ### Timer library
 
 1. In your words, describe the difference between common C function and interrupt service routine.
-   * Function
+   * Function - function is a group of statements that together perform a task, every C program has at least one function => main ().
    * Interrupt service routine
 
 2. Part of the header file listing with syntax highlighting, which defines settings for Timer/Counter0:
