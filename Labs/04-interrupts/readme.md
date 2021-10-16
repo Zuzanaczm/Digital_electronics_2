@@ -9,7 +9,7 @@ Link to your `Digital-electronics-2` GitHub repository:
 ### Overflow times
 
 1. Complete table with overflow times.
-2. 
+
 | **Module** | **Number of bits** | **1** | **8** | **32** | **64** | **128** | **256** | **1024** |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | Timer/Counter0 | 8  | 16u | 128u | -- | 1m | -- | 4m | 16m |
@@ -21,7 +21,7 @@ Link to your `Digital-electronics-2` GitHub repository:
 1. In your words, describe the difference between common C function and interrupt service routine.
    * Function - function is a group of statements that together perform a task, every C program has at least one function => main ().This function can be called from anywhere  in program
    * Interrupt service routine - a function,  to which we jump when interrupt occures. Main program is halted until ISR is performed
- - 
+ 
 2. Part of the header file listing with syntax highlighting, which defines settings for Timer/Counter0:
 ```c
 /**
