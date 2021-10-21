@@ -44,15 +44,21 @@ int main(void)
     sei();
 
     // Infinite loop
-    while (1)
-    {
-        /* Empty loop. All subsequent operations are performed exclusively 
-         * inside interrupt service routines ISRs */
-    }
+  while (1)
+  {
+	  if(!GPIO_read(&PINC, BUTTON_PC1))
+	  {
+		  TIM1_overflow_33ms();
+	  }
+	  else
+	  {
+		  TIM1_overflow_262ms();
+	  }
+  }
 
-    // Will never reach this
-    return 0;
-}
+  // Will never reach this
+  return 0;
+  }
 
 /* Interrupt service routines ----------------------------------------*/
 /**********************************************************************
