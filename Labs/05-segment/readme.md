@@ -1,4 +1,4 @@
-# Lab5 : Zuzana Czmelová
+# Lab 5 : Zuzana Czmelová
 
 Link to your `Digital-electronics-2` GitHub repository:
 
@@ -26,7 +26,7 @@ In the following table, write the binary values of the segments for display 0 to
    | 8 | 0  |  0 | 0  |  0 |  0 | 0  | 0  | 1  |
    | 9 | 0  |  0 | 0  | 0  |  1 |  0 | 0  | 1  |
 
-## Part1 - 7_segment library
+## Part 1 - 7_segment library
    * Listing of library source file `segment.c`,
     * Listing of decimal counter application `main.c` (at least two-digit decimal counter, ie. from 00 to 59),
     * Screenshot of SimulIDE circuit.
