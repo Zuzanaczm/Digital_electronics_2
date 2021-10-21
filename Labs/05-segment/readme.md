@@ -25,3 +25,12 @@ In the following table, write the binary values of the segments for display 0 to
    | 7 |   |   |   |   |   |   |   |   |
    | 8 |   |   |   |   |   |   |   |   |
    | 9 |   |   |   |   |   |   |   |   |
+
+## Part1 - 7_segment library
+   * Listing of library source file `segment.c`,
+    * Listing of decimal counter application `main.c` (at least two-digit decimal counter, ie. from 00 to 59),
+    * Screenshot of SimulIDE circuit.
+    *
+## Part2 - Snake
+ * Look-up table with snake definition,
+    * Listing of your snake cycling application `main.c` (at least one-digit snake).
