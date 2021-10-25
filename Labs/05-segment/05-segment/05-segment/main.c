@@ -1,19 +1,25 @@
-/***********************************************************************
- * 
- * Decimal counter with 7-segment output.
- * ATmega328P (Arduino Uno), 16 MHz, AVR 8-bit Toolchain 3.6.2
- *
- * Copyright (c) 2018-2021 Tomas Fryza
- * Dept. of Radio Electronics, Brno University of Technology, Czechia
- * This work is licensed under the terms of the MIT license.
- * 
- **********************************************************************/
+
+  
+  //Decimal counter with 7-segment output.
+  //ATmega328P (Arduino Uno), 16 MHz, AVR 8-bit Toolchain 3.6.2
+
+  //Copyright (c) 2018-Present Tomas Fryza
+  //Dept. of Radio Electronics, Brno University of Technology, Czechia
+  //This work is licensed under the terms of the MIT license
+
 
 /* Includes ----------------------------------------------------------*/
+# define F_CPU 16000000
+#include <util/delay.h>
 #include <avr/io.h>         // AVR device-specific IO definitions
 #include <avr/interrupt.h>  // Interrupts standard C library for AVR-GCC
 #include "timer.h"          // Timer library for AVR-GCC
 #include "segment.h"        // Seven-segment display library for AVR-GCC
+
+volatile uint8_t digit1;
+volatile uint8_t digit0;
+volatile uint8_t counter;
+
 
 /* Function definitions ----------------------------------------------*/
 /**********************************************************************
@@ -28,20 +34,26 @@ int main(void)
     SEG_init();
 
     // Test of SSD: display number '3' at position 0
-    SEG_update_shift_regs(0b00001101, 0b00010000);
-
+    SEG_update_shift_regs(3,0);
     // Configure 16-bit Timer/Counter1 for Decimal counter
-    // Enable interrupt and set the overflow prescaler to 262 ms
-
-
+    // Set the overflow prescaler to 262 ms and enable interrupt
+    //TIM1_overflow_262ms();
+    //TIM1_overflow_interrupt_enable();
+    //
+    //TIM0_overflow_4ms();
+    //TIM0_overflow_interrupt_enable();
     // Enables interrupts by setting the global interrupt mask
-
+    
+    sei();
 
     // Infinite loop
     while (1)
     {
-        /* Empty loop. All subsequent operations are performed exclusively 
-         * inside interrupt service routines ISRs */
+    SEG_update_shift_regs(9,0);
+    SEG_update_shift_regs(5,1);
+    SEG_update_shift_regs(11,2);
+    SEG_update_shift_regs(9,2);
+    SEG_update_shift_regs(5,3);
     }
 
     // Will never reach this
@@ -55,7 +67,31 @@ int main(void)
  **********************************************************************/
 ISR(TIMER1_OVF_vect)
 {
+    if(counter <= 59)
+    {
+    counter++;    
+    digit1 = counter / 10;
+    digit0 = counter % 10;
+    }
+    
+    else
+    {
+    counter = 0;
+    }
+}
 
-    // WRITE YOUR CODE HERE
-
+ISR(TIMER0_OVF_vect)
+{
+    static uint8_t pos = 0;
+        if (pos == 0)
+        {
+            SEG_update_shift_regs(digit1, 1);
+            pos++;
+        }
+        else
+        { 
+            SEG_update_shift_regs(digit0, 0);
+            pos = 0;      
+        }
+       
 }
