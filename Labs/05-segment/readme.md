@@ -26,26 +26,14 @@ In the following table, write the binary values of the segments for display 0 to
    | 8 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 |
    | 9 | 0 | 0 | 0 | 1 | 1 | 0 | 0 | 1 |
 
-Use schematic of the [Multi-function shield](../../Docs/arduino_shield.pdf) and find out the connection of seven-segment display. What is the purpose of two shift registers 74HC595?
 
-Shift registers are used to easily control devices requiring many input signals that do not need to be controlled fast. This way we need only two pins (input: SER, clock: SRCLK) to control as many pins as we want. This device presents additional reset input(SRCLR) and "output update" (RCLK). This way we can update values and change ouput synchronously. 
 
-We can cascade these devices. In this case we use 3 pins to control both anodes and cathodes of seven segment display.
-
-### Mode of operation
-
-1. Fill all 16 bits bit by bit of data using SER and SRCLK
-2. Update outputs using RCLK 
-
-![7 Seg sch](Images/7seg_sch.png)
-
-## Assignment
 
 ### 7-segment library
 
 1. In your words, describe the difference between Common Cathode and Common Anode 7-segment display.
-   * CC SSD - common catode, display is selected by aplying negative voltage at anode and segments are selected by aplying positive voltage at ports (A,B, .. G, DP).
-   * CA SSD - common anode, display is selected by aplying positive voltage at anode and segments are selected by aplying negative voltage at ports (A,B, .. G, DP).  
+   * CC SSD - common catode means that the cathodes o are connected to a single pin (to the ground) , display is selected by aplying negative voltage at anode and segments are selected by aplying positive  voltage at ports (=> logic 1 to a particular pin)
+   * CA SSD - common anode means that the anode  side of all of the LEDs are  connected at one pin, and each LED cathode has its own pin , display is selected by aplying positive voltage at anode and segments are selected by aplying negative voltage at ports 
 
 2. Code listing with syntax highlighting of two interrupt service routines (`TIMER1_OVF_vect`, `TIMER0_OVF_vect`) from counter application with at least two digits, ie. values from 00 to 59:
 
