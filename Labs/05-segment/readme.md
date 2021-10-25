@@ -7,10 +7,6 @@ Link to your `Digital-electronics-2` GitHub repository:
 
 ## Preparation tasks
 
-Read the [7-segment display tutorial](https://www.electronics-tutorials.ws/blog/7-segment-display-tutorial.html) and find out what is the difference between:
-   * Common Cathode 7-segment display (CC SSD)
-   * Common Anode 7-segment display (CA SSD)
-
 In the following table, write the binary values of the segments for display 0 to 9 on a common anode 7-segment display.
 
    | **Digit** | **A** | **B** | **C** | **D** | **E** | **F** | **G** | **DP** |
