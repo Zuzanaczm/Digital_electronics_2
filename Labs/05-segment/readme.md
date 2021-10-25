@@ -16,21 +16,86 @@ In the following table, write the binary values of the segments for display 0 to
    | **Digit** | **A** | **B** | **C** | **D** | **E** | **F** | **G** | **DP** |
    | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 |
-   | 1 |  1 | 0  | 0  |  1 | 1  |1   | 1  | 1  |
-   | 2 | 0  | 0  |  1 |  0 |0   |  1 | 0  | 1  |
+   | 1 | 1 | 0 | 0 | 1 | 1 | 1 | 1 | 1 |
+   | 2 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 1 |
    | 3 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 1 |
-   | 4 |  1 | 0  | 0  |  1 |1   |0   |  0 |1  |
-   | 5 |  0 | 1  | 0  |  0 | 1  |  0 | 0  | 1  |
-   | 6 | 0  | 1  | 0  | 0  | 0  | 0  | 0  |   1|
-   | 7 | 0  |   0| 0  |  1 |  1 | 1  | 1  | 1  |
-   | 8 | 0  |  0 | 0  |  0 |  0 | 0  | 0  | 1  |
-   | 9 | 0  |  0 | 0  | 0  |  1 |  0 | 0  | 1  |
+   | 4 | 1 | 0 | 0 | 1 | 1 | 0 | 0 | 1 |
+   | 5 | 0 | 1 | 0 | 0 | 1 | 0 | 0 | 1 |
+   | 6 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1 |
+   | 7 | 0 | 0 | 0 | 1 | 1 | 1 | 1 | 1 |
+   | 8 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 |
+   | 9 | 0 | 0 | 0 | 1 | 1 | 0 | 0 | 1 |
 
-## Part 1 - 7_segment library
-   * Listing of library source file `segment.c`,
-    * Listing of decimal counter application `main.c` (at least two-digit decimal counter, ie. from 00 to 59),
-    * Screenshot of SimulIDE circuit.
-    *
-## Part 2 - Snake
- * Look-up table with snake definition,
-    * Listing of your snake cycling application `main.c` (at least one-digit snake).
+Use schematic of the [Multi-function shield](../../Docs/arduino_shield.pdf) and find out the connection of seven-segment display. What is the purpose of two shift registers 74HC595?
+
+Shift registers are used to easily control devices requiring many input signals that do not need to be controlled fast. This way we need only two pins (input: SER, clock: SRCLK) to control as many pins as we want. This device presents additional reset input(SRCLR) and "output update" (RCLK). This way we can update values and change ouput synchronously. 
+
+We can cascade these devices. In this case we use 3 pins to control both anodes and cathodes of seven segment display.
+
+### Mode of operation
+
+1. Fill all 16 bits bit by bit of data using SER and SRCLK
+2. Update outputs using RCLK 
+
+![7 Seg sch](Images/7seg_sch.png)
+
+## Assignment
+
+### 7-segment library
+
+1. In your words, describe the difference between Common Cathode and Common Anode 7-segment display.
+   * CC SSD - common catode, display is selected by aplying negative voltage at anode and segments are selected by aplying positive voltage at ports (A,B, .. G, DP).
+   * CA SSD - common anode, display is selected by aplying positive voltage at anode and segments are selected by aplying negative voltage at ports (A,B, .. G, DP).  
+
+2. Code listing with syntax highlighting of two interrupt service routines (`TIMER1_OVF_vect`, `TIMER0_OVF_vect`) from counter application with at least two digits, ie. values from 00 to 59:
+
+```c
+ISR(TIMER1_OVF_vect)
+{
+    if(counter <= 59)
+    {
+    counter++;    
+    digit1 = counter / 10;
+    digit0 = counter % 10;
+    }
+    
+    else
+    {
+    counter = 0;
+    }
+}
+
+}
+```
+
+```c
+ISR(TIMER0_OVF_vect)
+{
+    static uint8_t pos = 0;
+        if (pos == 0)
+        {
+            SEG_update_shift_regs(digit1, 1);
+            pos++;
+        }
+        else
+        { 
+            SEG_update_shift_regs(digit0, 0);
+            pos = 0;      
+        }
+       
+}
+
+```
+
+3. Flowchart figure for function `SEG_clk_2us()` which generates one clock period on `SEG_CLK` pin with a duration of 2&nbsp;us. The image can be drawn on a computer or by hand. Use clear descriptions of the individual steps of the algorithms.
+
+   ![](images/clk_2us.png)
+
+
+### Kitchen alarm
+
+Consider a kitchen alarm with a 7-segment display, one LED and three push buttons: start, +1 minute, -1 minute. Use the +1/-1 minute buttons to increment/decrement the timer value. After pressing the Start button, the countdown starts. The countdown value is shown on the display in the form of mm.ss (minutes.seconds). At the end of the countdown, the LED will start blinking.
+
+1. Scheme of kitchen alarm; do not forget the supply voltage. The image can be drawn on a computer or by hand. Always name all components and their values.
+
+   ![](images/kitchen_timer_sch.png)
