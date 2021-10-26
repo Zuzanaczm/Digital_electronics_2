@@ -1,4 +1,4 @@
-# Lab 6: YOUR_FIRSTNAME FAMILYNAME
+# Lab 6: Zuzana Czmelová
 
 Link to your `Digital-electronics-2` GitHub repository:
 
@@ -8,8 +8,8 @@ Link to your `Digital-electronics-2` GitHub repository:
 ### LCD display module
 
 1. In your words, describe what ASCII table is.
-   * ASCII
-
+   * ASCII - is a table which contains letters, numbers, control characters, and other symbols. Each character is assigned a unique 7-bit code. 
+  
 2. (Hand-drawn) picture of time signals between ATmega328P and LCD keypad shield (HD44780 driver) when transmitting three character data `De2`.
 
    ![your figure]()
