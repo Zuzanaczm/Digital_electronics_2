@@ -75,6 +75,5 @@ ISR(TIMER0_OVF_vect)
 
    ![](images/flowchart_CLK.png)
 
-
-
-
+4.Scheme of kitchen alarm; do not forget the supply voltage. The image can be drawn on a computer or by hand. Always name all components and their values
+ ![](images/kitchen_alarm.png)
