@@ -2,7 +2,7 @@
 
 Link to this file in your GitHub repository:
 
-[https://github.com/your-github-account/repository-name/lab_name](https://github.com/...)
+[https://github.com/Zuzanaczm/Digital_electronics_2/tree/main/Labs/07-uart](https://github.com/Zuzanaczm/Digital_electronics_2/tree/main/Labs/07-uart)
 
 
 ### Analog-to-Digital Conversion
