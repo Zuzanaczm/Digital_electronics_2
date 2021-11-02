@@ -1,4 +1,4 @@
-# Lab 7: YOUR_FIRSTNAME FAMILYNAME
+# Lab 7: Zuzana Czmelová
 
 Link to this file in your GitHub repository:
 
@@ -10,12 +10,12 @@ Link to this file in your GitHub repository:
 1. Complete table with voltage divider, calculated, and measured ADC values for all five push buttons.
   | **Push button** | **PC0[A0] voltage** | **ADC value (calculated)** | **ADC value (measured)** |
    | :-: | :-: | :-: | :-: |
-   | Right  | 0&nbsp;V | 0 | todo |
-   | Up     | 0.495&nbsp;V | 101 | todo |
-   | Down   | 1.203&nbsp;V | 246 | todo |
-   | Left   | 1.970&nbsp;V | 403 | todo |
-   | Select | 3.182&nbsp;V | 651 | todo |
-   | none   | 5&nbsp;V | 1023 | todo |
+   | Right  | 0V | 0 | todo |
+   | Up     | 0.495V | 101 | todo |
+   | Down   | 1.203V | 246 | todo |
+   | Left   | 1.970V | 403 | todo |
+   | Select | 3.182V | 651 | todo |
+   | none   | 5V | 1023 | todo |
 2. Code listing of ACD interrupt service routine for sending data to the LCD/UART and identification of the pressed button. Always use syntax highlighting and meaningful comments:
 
 ```c
