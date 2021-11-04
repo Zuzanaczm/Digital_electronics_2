@@ -32,11 +32,11 @@ ISR(ADC_vect)
     value = ADC;                  // Copy ADC result to 16-bit variable
     itoa(value, lcd_string, 10);  // Convert decimal value to string
     lcd_gotoxy(8, 0);
-    lcd_puts("    ");             //bez3
+    lcd_puts("    ");             
     lcd_gotoxy(8, 0);
     lcd_puts(lcd_string);
     
-    itoa(value, lcd_string, 16);
+    itoa(value, lcd_string, 16); / Convert hexadecimal value to string
     lcd_gotoxy(13,0);
     lcd_puts("    ");  
     lcd_gotoxy(13,0); 
