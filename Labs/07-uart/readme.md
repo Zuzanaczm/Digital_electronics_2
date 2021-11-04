@@ -36,7 +36,7 @@ ISR(ADC_vect)
     lcd_gotoxy(8, 0);
     lcd_puts(lcd_string);
     
-    itoa(value, lcd_string, 16); / Convert hexadecimal value to string
+    itoa(value, lcd_string, 16); // Convert hexadecimal value to string
     lcd_gotoxy(13,0);
     lcd_puts("    ");  
     lcd_gotoxy(13,0); 
