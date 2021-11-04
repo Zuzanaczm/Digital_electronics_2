@@ -27,13 +27,21 @@ Link to this file in your GitHub repository:
 ISR(ADC_vect)
 {
     uint16_t value = 0;
-    char lcd_string[4] = "0000";
+    char lcd_string[] = "0000";
 
     value = ADC;                  // Copy ADC result to 16-bit variable
     itoa(value, lcd_string, 10);  // Convert decimal value to string
-
-    // WRITE YOUR CODE HERE
-
+    lcd_gotoxy(8, 0);
+    lcd_puts("    ");             //bez3
+    lcd_gotoxy(8, 0);
+    lcd_puts(lcd_string);
+    
+    itoa(value, lcd_string, 16);
+    lcd_gotoxy(13,0);
+    lcd_puts("    ");  
+    lcd_gotoxy(13,0); 
+    lcd_puts(lcd_string);
+    
 }
 ```
 
