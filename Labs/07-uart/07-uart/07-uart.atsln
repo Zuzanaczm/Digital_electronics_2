@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "07-uart", "07-uart\07-uart.cproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{644C7861-7F70-40F8-A368-DE4B15FE9530}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\06-lcd\06-lcd\lcd.c = ..\..\06-lcd\06-lcd\lcd.c
+		..\..\06-lcd\06-lcd\lcd.h = ..\..\06-lcd\06-lcd\lcd.h
+		..\..\06-lcd\06-lcd\lcd_definitions.h = ..\..\06-lcd\06-lcd\lcd_definitions.h
+		..\..\05-segment\05-segment\05-segment\timer.h = ..\..\05-segment\05-segment\05-segment\timer.h
+		uart.c = uart.c
+		uart.h = uart.h
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|AVR.ActiveCfg = Debug|AVR
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|AVR.Build.0 = Debug|AVR
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|AVR.ActiveCfg = Release|AVR
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
