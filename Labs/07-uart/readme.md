@@ -10,12 +10,12 @@ Link to this file in your GitHub repository:
 1. Complete table with voltage divider, calculated, and measured ADC values for all five push buttons.
    | **Push button** | **PC0[A0] voltage** | **ADC value (calculated)** | **ADC value (measured)** |
    | :-: | :-: | :-: | :-: |
-   | Right  | 0&nbsp;V | 0   |  |
-   | Up     | 0.495&nbsp;V | 101 |  |
-   | Down   |   1.203&nbsp;V    | 246    |  |
-   | Left   |    1.970&nbsp;V    |  403   |  |
-   | Select | 3.182&nbsp;V       |  651   |  |
-   | none   |   5&nbsp;V    |  1023   |  |
+   | Right  | 0&nbsp;V | 0   |0  |
+   | Up     | 0.495&nbsp;V | 101 | 99 |
+   | Down   |   1.203&nbsp;V    | 246    | 257 |
+   | Left   |    1.970&nbsp;V    |  403   | 409 |
+   | Select | 3.182&nbsp;V       |  651   | 641 |
+   | none   |   5&nbsp;V    |  1023   | 1023 |
 
 2. Code listing of ACD interrupt service routine for sending data to the LCD/UART and identification of the pressed button. Always use syntax highlighting and meaningful comments:
 
@@ -27,13 +27,21 @@ Link to this file in your GitHub repository:
 ISR(ADC_vect)
 {
     uint16_t value = 0;
-    char lcd_string[4] = "0000";
+    char lcd_string[] = "0000";
 
     value = ADC;                  // Copy ADC result to 16-bit variable
     itoa(value, lcd_string, 10);  // Convert decimal value to string
-
-    // WRITE YOUR CODE HERE
-
+    lcd_gotoxy(8, 0);
+    lcd_puts("    ");             
+    lcd_gotoxy(8, 0);
+    lcd_puts(lcd_string);
+    
+    itoa(value, lcd_string, 16); / Convert hexadecimal value to string
+    lcd_gotoxy(13,0);
+    lcd_puts("    ");  
+    lcd_gotoxy(13,0); 
+    lcd_puts(lcd_string);
+    
 }
 ```
 
