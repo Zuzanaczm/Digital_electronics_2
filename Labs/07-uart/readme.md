@@ -56,7 +56,7 @@ ISR(ADC_vect)
 
    ![your figure]()
    
-3.C code for `uint8_t get_parity(uint8_t data, uint8_t type)`
+3. C code for `uint8_t get_parity(uint8_t data, uint8_t type)`
 
 ```c
 uint8_t get_parity(uint8_t data, uint8_t type)
