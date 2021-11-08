@@ -35,8 +35,8 @@ ISR(ADC_vect)
     uart_puts("ADC Value : ");
     uart_puts(lcd_string);
     uart_puts(" bits ");
-	//uart_putc('\n');
-	uart_putc('\r');
+    //uart_putc('\n');
+    uart_putc('\r');
      
     itoa(value, lcd_string, 16);
     lcd_gotoxy(13,0);
