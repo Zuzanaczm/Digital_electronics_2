@@ -60,7 +60,7 @@ int main(void)
 
     // Initialize UART to asynchronous, 8N1, 9600
 
-
+   uart_init(UART_BAUD_SELECT(9600, 16000000));
     // Enables interrupts by setting the global interrupt mask
     sei();
 
@@ -101,11 +101,18 @@ ISR(ADC_vect)
     lcd_puts("    ");             //bez3
     lcd_gotoxy(8, 0);
     lcd_puts(lcd_string);
-    
+	
+    uart_puts("ADC Value : ");
+    uart_puts(lcd_string);
+    uart_puts(" bits ");
+	//uart_putc('\n');
+	uart_putc('\r');
+     
     itoa(value, lcd_string, 16);
     lcd_gotoxy(13,0);
     lcd_puts("    ");  
     lcd_gotoxy(13,0); 
     lcd_puts(lcd_string);
     
+	
 }
