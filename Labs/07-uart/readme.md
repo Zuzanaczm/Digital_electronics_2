@@ -20,10 +20,6 @@ Link to this file in your GitHub repository:
 2. Code listing of ACD interrupt service routine for sending data to the LCD/UART and identification of the pressed button. Always use syntax highlighting and meaningful comments:
 
 ```c
-/**********************************************************************
- * Function: ADC complete interrupt
- * Purpose:  Display value on LCD and send it to UART.
- **********************************************************************/
 ISR(ADC_vect)
 {
     uint16_t value = 0;
@@ -32,11 +28,17 @@ ISR(ADC_vect)
     value = ADC;                  // Copy ADC result to 16-bit variable
     itoa(value, lcd_string, 10);  // Convert decimal value to string
     lcd_gotoxy(8, 0);
-    lcd_puts("    ");             
+    lcd_puts("    ");             //bez3
     lcd_gotoxy(8, 0);
     lcd_puts(lcd_string);
-    
-    itoa(value, lcd_string, 16); // Convert hexadecimal value to string
+	
+    uart_puts("ADC Value : ");
+    uart_puts(lcd_string);
+    uart_puts(" bits ");
+    //uart_putc('\n');
+    uart_putc('\r');
+     
+    itoa(value, lcd_string, 16);
     lcd_gotoxy(13,0);
     lcd_puts("    ");  
     lcd_gotoxy(13,0); 
@@ -55,7 +57,7 @@ ISR(ADC_vect)
 2. Flowchart figure for function `uint8_t get_parity(uint8_t data, uint8_t type)` which calculates a parity bit of input 8-bit `data` according to parameter `type`. The image can be drawn on a computer or by hand. Use clear descriptions of the individual steps of the algorithms.
 
    ![your figure]()
-
+   
 
 ### Temperature meter
 
