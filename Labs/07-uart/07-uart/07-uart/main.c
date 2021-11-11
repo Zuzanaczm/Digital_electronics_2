@@ -59,7 +59,7 @@ int main(void)
    TIM1_overflow_interrupt_enable();
 
     // Initialize UART to asynchronous, 8N1, 9600
-
+   
 
     // Enables interrupts by setting the global interrupt mask
     sei();
